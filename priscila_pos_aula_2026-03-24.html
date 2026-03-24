@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Priscila — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff;
+    }
+
+    .row-student{
+      background:#e8f7ef;
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Hábitos, rotina e introdução ao present perfect</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Priscila &nbsp;•&nbsp;
+            <strong>Data:</strong> 24/03/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Revisão rápida da aula anterior, conversação sobre hábitos, vocabulário útil do dia a dia e uma primeira explicação sobre present perfect com foco em compreensão.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              Na aula de hoje, começamos com uma <strong>revisão curta</strong> de conteúdos anteriores, retomando estruturas como <em>She is from Brazil</em> e a diferença entre verbos usados com refeições, especialmente <strong>have breakfast / have lunch / have dinner</strong> e <strong>eat</strong>. Depois, a conversa avançou para o tema principal da aula: <strong>habits</strong>.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Praticamos perguntas e respostas sobre hábitos pessoais, como ir à academia, beber água, comer de forma saudável, ler todos os dias e cuidar dos pets. Ao longo da conversa, trabalhamos a ideia de <strong>hábitos úteis x hábitos problemáticos</strong>, com exemplos como <em>eat a lot of sweets</em>, <em>procrastinate</em>, <em>eat healthy</em> e <em>read every day</em>. Também apareceu vocabulário importante para ampliar a comunicação, como <strong>helpful</strong>, <strong>healthy</strong>, <strong>realize</strong>, <strong>replace</strong>, <strong>depends on</strong> e <strong>show up</strong>.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Outro ponto importante foi a explicação do sufixo <strong>-ful</strong>, mostrando como ele ajuda a entender palavras como <em>beautiful</em> e <em>helpful</em>, sempre com a ideia de “cheio de”. Esse raciocínio foi usado para facilitar a leitura e a interpretação de vocabulário novo.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Na segunda parte da aula, assistimos a um vídeo curto sobre hábitos e usamos um trecho específico para treinar interpretação. A explicação ficou concentrada em como o cérebro gasta menos energia quando repetimos algo muitas vezes. A partir disso, fizemos uma <strong>introdução ao present perfect</strong>, comparando esse tempo verbal com o <strong>simple past</strong>. A ideia principal foi entender que o present perfect costuma aparecer quando falamos de <strong>experiência</strong> ou de algo do passado que <strong>ainda influencia o presente</strong>, como em <em>I have read</em>, <em>I have gone</em>, <em>I have lost my keys</em> e <em>He has forgotten his bag</em>.
+            </p>
+            <p style="margin:0;">
+              No geral, foi uma aula com bastante <strong>conversação guiada</strong>, construção de frases completas e ampliação de vocabulário real para o dia a dia. O foco principal foi fazer você se soltar mais, entender melhor perguntas em inglês e começar a reconhecer estruturas que vão aparecer com muita frequência nas próximas aulas.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>helpful</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) útil, que ajuda</em><br>
+                <small>Going to the gym is a helpful habit.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>present perfect</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) tempo verbal usado para experiências ou ações passadas com efeito no presente</em><br>
+                <small>I have read a biography.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Palavras e expressões trabalhadas</h3>
+            <ul>
+              <li><strong>habit</strong> – hábito</li>
+              <li><strong>realize</strong> – perceber, notar</li>
+              <li><strong>helpful</strong> – útil, que ajuda</li>
+              <li><strong>problematic</strong> – problemático</li>
+              <li><strong>healthy</strong> – saudável</li>
+              <li><strong>health</strong> – saúde</li>
+              <li><strong>procrastinate</strong> – procrastinar</li>
+              <li><strong>replace</strong> – substituir, colocar algo no lugar de outra coisa</li>
+              <li><strong>show up</strong> – aparecer</li>
+              <li><strong>care for</strong> / <strong>care for my cat</strong> – cuidar de / cuidar da minha gata</li>
+              <li><strong>depends on</strong> – depende de</li>
+              <li><strong>biography</strong> – biografia</li>
+              <li><strong>once</strong> – uma vez</li>
+              <li><strong>twice</strong> – duas vezes</li>
+              <li><strong>three times / four times</strong> – três vezes / quatro vezes</li>
+              <li><strong>all day</strong> – o dia todo</li>
+              <li><strong>eat healthy</strong> – comer de forma saudável</li>
+              <li><strong>go to the gym</strong> – ir para a academia</li>
+              <li><strong>have lunch / have dinner / have breakfast</strong> – almoçar / jantar / tomar café da manhã</li>
+              <li><strong>present perfect</strong> – estrutura verbal para experiências e ações passadas conectadas ao presente</li>
+              <li><strong>done</strong> – particípio de <em>do</em></li>
+              <li><strong>gone</strong> – particípio de <em>go</em></li>
+              <li><strong>been</strong> – particípio de <em>be</em></li>
+              <li><strong>forgotten</strong> – particípio de <em>forget</em></li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>She is from Brazil.</li>
+              <li>I go to the gym three times a week.</li>
+              <li>I drink two liters of water.</li>
+              <li>Eating a lot of sweets is a problematic habit.</li>
+              <li>Eat healthy is a helpful habit.</li>
+              <li>I started this habit two years ago.</li>
+              <li>It depends on the book.</li>
+              <li>My cat just showed up at my house.</li>
+              <li>I have read a Justin Bieber biography.</li>
+              <li>I have been to Argentina.</li>
+              <li>I have lost my keys.</li>
+              <li>He has forgotten his bag.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>Go into gym</strong> → <strong>go to the gym</strong><br>Usamos <em>go to</em> para falar de ir a lugares.</li>
+              <li><strong>Three times for a weekly</strong> → <strong>three times a week</strong><br>A forma natural para frequência é <em>times a week</em>.</li>
+              <li><strong>Every day</strong> ≠ <strong>all day</strong><br><em>Every day</em> é “todo dia”. <em>All day</em> é “o dia todo”.</li>
+              <li><strong>Depend the book</strong> → <strong>depends on the book</strong><br>O verbo <em>depend</em> pede a preposição <em>on</em>.</li>
+              <li><strong>I used to go to Sorocaba</strong> foi ajustado com atenção ao verbo <strong>be</strong> quando o foco era estrutura com <em>be used to</em>.<br>Sem o <em>be</em>, a frase pode passar a ideia de um hábito do passado que não existe mais.</li>
+              <li><strong>I read Justin Bieber biography</strong> → <strong>I have read a Justin Bieber biography</strong><br>Aqui o foco era experiência de vida, então o ideal foi usar <em>present perfect</em>.</li>
+              <li><strong>Where I need to go to another city</strong> → <strong>when I need to go to another city</strong><br>O sentido era temporal, então <em>when</em> era a escolha correta, não <em>where</em>.</li>
+              <li><strong>Priscila mostrou boa compreensão de perguntas</strong>, mas ainda precisa ganhar velocidade para transformar respostas curtas em frases completas. Esse foi um ponto importante da aula.</li>
+              <li><strong>Dica central do present perfect:</strong> ao ver <em>have/has + particípio</em>, pense primeiro em <strong>passado</strong>. Depois, veja se é experiência ou uma ação passada que ainda afeta o presente.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+            <a
+              class="media-btn"
+              href="https://youtu.be/P-s5F6DRGv4"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">66%</span></td>
+                <td class="talk-time">~40 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Priscila</span></td>
+                <td><span class="talk-percent">34%</span></td>
+                <td class="talk-time">~21 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa (como combinado em aula):</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Lembrar de ler o pós-aula de 2 a 3x na semana.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2026 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
